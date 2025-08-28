@@ -1,7 +1,7 @@
 library(here)
 
 ## Cargar las funciones
-here::i_am( "orquestador.R")
+here::i_am( "procesamiento/orquestador.R")
 
 #lista_archivos <- list.files( here() , full.names = TRUE)
 
@@ -28,5 +28,6 @@ for (script in scripts) {
 
 
 cat("▶ Ejecutando script Python para generar presentación...\n")
-result_py <- system2("python", args = "Crear_ppt.py", stdout = TRUE, stderr = TRUE)
+result_py <- system2("python", args = "procesamiento/Crear_ppt.py", stdout = TRUE, stderr = TRUE)
 cat("Resultado del script Python:\n", paste(result_py, collapse = "\n"), "\n")
+

@@ -18,6 +18,13 @@ import pandas as pd
 from datetime import date
 import calendar
 import locale
+from pathlib import Path
+
+current_directory = Path.cwd()
+plantilla_directory = current_directory/"auxiliares/Plantilla1.pptx"
+titulos_tarjetas_directory = current_directory/"auxiliares/titulos_tarjetas.csv"
+salidas_directory = current_directory/"salidas"
+presentacion_mensual_directory = current_directory/"salidas/presentacion_mensual.pptx"
 
 # Asegúrate de usar español para nombres de meses
 locale.setlocale(locale.LC_TIME, "es_MX.UTF-8")
@@ -41,13 +48,13 @@ nombre_mes_previo = calendar.month_name[mes_previo].capitalize()
 
 
 # Cargar plantilla existente
-prs = Presentation("../auxiliares/Plantilla1.pptx")
+prs = Presentation(plantilla_directory)
 
 # Leer el CSV con títulos
-df_titulos = pd.read_csv("../auxiliares/titulos_tarjetas.csv")
+df_titulos = pd.read_csv(titulos_tarjetas_directory)
 
 # Ruta a imágenes
-ruta_imagenes = "../salidas"
+ruta_imagenes = salidas_directory
 
 # Mapeo diapos → imágenes
 mapeo = {
@@ -222,7 +229,7 @@ for slide_index, imagenes in mapeo.items():
 
 
 # Guardar presentación final
-prs.save("../salidas/presentacion_mensual.pptx")
+prs.save(presentacion_mensual_directory)
 
 
 # In[ ]:

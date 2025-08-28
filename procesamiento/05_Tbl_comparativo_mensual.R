@@ -532,11 +532,11 @@ generar_mini_tabla_delito <- function(nombre_delito, df) {
   
   asignar_flecha <- function(valor) {
     if (str_detect(valor, "-")) {
-      return("../auxiliares/verde.png")
+      return("auxiliares/verde.png")
     } else if (valor == "0.0%" || valor == "0%") {
-      return("../auxiliares/gris.png")
+      return("auxiliares/gris.png")
     } else if (!is.na(valor) && valor != "") {
-      return("../auxiliares/rojo.png")
+      return("auxiliares/rojo.png")
     } else {
       return(NA_character_)
     }
